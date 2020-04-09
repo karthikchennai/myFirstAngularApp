@@ -1,5 +1,5 @@
 import { RecipeModel } from './../recipe.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-recipes-list',
@@ -13,7 +13,13 @@ export class RecipesListComponent implements OnInit {
     new RecipeModel('Idly',   'South Indian Breakfast, Healty food', 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Chicken_Biryani.jpg')
   ];
 
+  @Output('recipeDetailsTo') recipe = new EventEmitter<RecipeModel>();
+
   constructor() { }
+
+  onRecipeSelected(recipe: RecipeModel){
+   this.recipe.emit(recipe);
+  }
 
   ngOnInit(): void {
   }
