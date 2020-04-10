@@ -14,6 +14,11 @@ ingredientList: Ingredient[] = [
 
   constructor() { }
 
+  getIngredientValue(ingredient: Ingredient){
+    this.ingredientList.push(ingredient);
+
+  }
+
   ngOnInit(): void {
   }
 
